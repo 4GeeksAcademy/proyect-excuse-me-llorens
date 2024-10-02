@@ -7,6 +7,7 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
+
   let who = ["The dog", "My grandma", "The mailman", "My bird"];
   let action = ["ate", "peed", "crushed", "broke"];
   let what = ["my homework", "my phone", "the car"];
@@ -18,9 +19,18 @@ window.onload = function() {
     "while I was praying"
   ];
 
-  questions = {
-    who: document.getElementById("who").value
+  const getRandom = array_y => Math.floor(Math.random() * array_y.length);
+  const getValor = array_y => array_y[getRandom(array_y)];
+
+  let questions = {
+    who: document.getElementById("who"),
+    action: document.getElementById("action"),
+    what: document.getElementById("what"),
+    when: document.getElementById("when")
   };
 
-  console.log(questions.who);
+  questions.who.innerHTML = "<span>" + getValor(who) + " </span>";
+  questions.action.innerHTML = "<span>" + getValor(action) + " </span>";
+  questions.what.innerHTML = "<span>" + getValor(what) + " </span>";
+  questions.when.innerHTML = "<span>" + getValor(when) + " </span>";
 };
